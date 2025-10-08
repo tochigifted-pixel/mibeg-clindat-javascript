@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Euro/USD Converter</title>
+</head>
+<body>
+  <h1>Euro/USD Converter</h1>
+  <label>
+    Euro: <input id="euro" type="number" size="10">
+  </label>
+  <label>
+    USD: <input id="usd" type="number" size="10">
+  </label>
+
+  <script>
+const rate = 100;
+
+  function  euroToUsd(e) {
+    return e * rate;
+  }
+ 
+  const usdToEuro = u => u / rate;
+
+    euro.addEventListener(
+      "keyup",
+      (event) => {
+        const e = event.target.valueAsNumber;
+        usd.value = euroToUsd(e);
+      }
+    );
+
+    usd.addEventListener(
+      "keyup",
+      (event) => {
+        const u = event.target.valueAsNumber;
+        euro.value = usdToEuro(u);
+      }
+    );
+  </script>
+</body>
+</html>
